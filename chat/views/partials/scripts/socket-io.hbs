@@ -1,0 +1,20 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const room = "{{class}}";
+  const socket = io("/tech");
+
+  $("form").submit(() => {
+    let msg = $("#m").val();
+    socket.emit("message", { msg, room });
+    $("#m").val("");
+    return false;
+  });
+
+  socket.on("connect", () => {
+    socket.emit("join", { room });
+  });
+
+  socket.on("message", (msg) => {
+    $("#messages").append($("<li>").text(msg));
+  });
+</script>

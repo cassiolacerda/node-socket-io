@@ -1,0 +1,47 @@
+{{#section 'head'}}
+  <style>
+    form {
+      padding: 20px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding-right: 50px;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    #messages li:nth-child(odd) {
+      background: #eee;
+    }
+  </style>
+{{/section}}
+
+{{#section 'scripts'}}
+  {{> scripts/socket-io}}
+{{/section}}
+
+<div class="container-fluid">
+  <div class="row">
+    <ul id="messages"></ul>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <form action="">
+        <div class="input-group mb-3">
+          <input id="m" autocomplete="off" type="text" class="form-control" placeholder="Message..."
+            aria-describedby="Message..." />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit">
+              Send
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
